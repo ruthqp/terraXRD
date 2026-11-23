@@ -1,27 +1,27 @@
 #Script 01: Build the reference patterns from RRUFF and AMCSD DIF files
-## Input:  DIF files in reference/rruff/ (RRUFF) and reference/amcsd/ (AMCSD),
-##         one file per mineral
-## Output: output/01_reference_patterns.csv (all peaks of all minerals, one table)
+##Input:  DIF files in reference/rruff/ (RRUFF) and reference/amcsd/ (AMCSD),
+##one file per mineral
+##Output: output/01_reference_patterns.csv (all peaks of all minerals, one table)
 ##
-## To add a mineral: download its DIF file, save it in the right folder with the
-## original name, and run this script again. No code changes needed.
-## AMCSD is used only for minerals without a DIF file in RRUFF.
+##To add a mineral: download its DIF file, save it in the right folder with the
+##original name, and run this script again. No code changes needed.
+##AMCSD is used only for minerals without a DIF file in RRUFF.
 
 #Packages-----
 library(tidyverse)
 
 #Step 1: List the DIF files-----
-# 1. Set the working directory to the project folder
+#1. Set the working directory to the project folder
 setwd("~/Documents/Steve Lab/Svalbard/XRD_Analysis/terraXRD_project")
 
-# 2. Find all DIF files in the two folders
+#2. Find all DIF files in the two folders
 ## RRUFF names:  Quartz__R040031-1__Powder__DIF_File__<code>.txt
 ## AMCSD names:  Kaolinite__0020861.dif
 rruff_files <- list.files("reference/rruff", pattern = "DIF_File", full.names = TRUE)
 amcsd_files <- list.files("reference/amcsd", pattern = "\\.dif$", full.names = TRUE)
 dif_files   <- c(rruff_files, amcsd_files)
 dif_files
-length(dif_files)   ## number of minerals
+length(dif_files)   ##number of minerals
 
 #Step 2: Write a function that reads one DIF file-----
 ## This function contains the same steps we did for quartz:
@@ -29,7 +29,7 @@ length(dif_files)   ## number of minerals
 ## convert d-spacing to 2-theta for the Terra (Cu, 1.5406 A), keep 5-55 degrees.
 ## Writing it as a function lets us apply it to every file in the folder.
 
-lambda_terra <- 1.5406   ## Cu K-alpha1, from the Terra .plv file
+lambda_terra <- 1.5406   ##Cu K-alpha1,from the Terra .plv file
 
 read_dif <- function(dif_file) {
   
@@ -41,8 +41,8 @@ read_dif <- function(dif_file) {
   mineral   <- str_extract(file_name, "^[^_]+")
   source    <- if_else(str_detect(dif_file, "amcsd"), "AMCSD", "RRUFF")
   ref_id    <- if_else(source == "RRUFF",
-                       str_extract(file_name, "R[0-9]+"),             ## R + digits
-                       str_extract(file_name, "[0-9]+(?=\\.dif$)"))   ## digits before .dif
+                       str_extract(file_name, "R[0-9]+"),             ##R + digits
+                       str_extract(file_name, "[0-9]+(?=\\.dif$)"))   ##digits before .dif
   
   # 2. Read the lines and find the peak table
   ## The table starts after the line with "2-THETA".
