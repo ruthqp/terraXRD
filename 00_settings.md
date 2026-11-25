@@ -1,9 +1,9 @@
-#' ---
-#' title: "Settings"
-#' author: "Ruth E. Quispe-Pilco"
-#' output: github_document
-#' ---
+Settings
+================
+Ruth E. Quispe-Pilco
+2026-11-25
 
+``` r
 #####Settings for terraXRD processing ---------
 #Let's define first the folders, the instrument settings, 
 #and the list of samples used by all the scripts. 
@@ -64,31 +64,31 @@ sample_files <- list.files(sample_dir, pattern = "-ka\\.txt$",
 sample_files
 ```
 
-    ##  [1] "samples/FINE_ABS1_2_T1/processed/FINE_ABS1_2_T1-ka.txt"            
-    ##  [2] "samples/FINE_ABS1_25_3_T1/processed/FINE_ABS1_25_3_T1-ka.txt"      
-    ##  [3] "samples/FINE_ABS2_25_3_T1/processed/FINE_ABS2_25_3_T1-ka.txt"      
-    ##  [4] "samples/FINE_ABS2_25_4_T1/processed/FINE_ABS2_25_4_T1-ka.txt"      
-    ##  [5] "samples/FINE_ABS2_25_4_T2/processed/FINE_ABS2_25_4_T2-ka.txt"      
-    ##  [6] "samples/FINE_ABS2_25_5_T1/processed/FINE_ABS2_25_5_T1-ka.txt"      
-    ##  [7] "samples/FINE_ABS2_25_5_T2/processed/FINE_ABS2_25_5_T2-ka.txt"      
-    ##  [8] "samples/FINE_BLK1_1_T1/processed/FINE_BLK1_1_T1-ka.txt"            
-    ##  [9] "samples/FINE_BLK1_2_T1/processed/FINE_BLK1_2_T1-ka.txt"            
-    ## [10] "samples/FINE_BLK1_3_T1/processed/FINE_BLK1_3_T1-ka.txt"            
-    ## [11] "samples/FINE_BLK1_4_T1/processed/FINE_BLK1_4_T1-ka.txt"            
-    ## [12] "samples/FINE_BLK1_5_T1/processed/FINE_BLK1_5_T1-ka.txt"            
-    ## [13] "samples/FINE_BLK1_6_T1/processed/FINE_BLK1_6_T1-ka.txt"            
-    ## [14] "samples/FINE_BLK2_6_T1/processed/FINE_BLK2_6_T1-ka.txt"            
-    ## [15] "samples/FINE_clast_VBS1_25_1_T2/processed/FINE_VBS1_25_1_T2-ka.txt"
-    ## [16] "samples/FINE_VBS1_25_1_T1/processed/FINE_VBS1_25_1_T1-ka.txt"      
-    ## [17] "samples/FINE_VBS1_25_2_T1/processed/FINE_VBS1_25_2_t1-ka.txt"      
-    ## [18] "samples/FINE_VBS1_25_3_T1/processed/FINE_VBS1_25_3_T1-ka.txt"      
-    ## [19] "samples/FINE_VBS1_25_4_T1/processed/FINE_VBS1_25_4_T1-ka.txt"      
-    ## [20] "samples/FINE_VBS2_25_1_T1/processed/FINE_VBS2_25_1_T1-ka.txt"      
-    ## [21] "samples/FINE_VBS2_25_2_T1/processed/FINE_VBS2_25_2_T1-ka.txt"      
-    ## [22] "samples/FINE_VBS2_25_2_T2/processed/FINE_VBS2_25_2_T2-ka.txt"      
-    ## [23] "samples/FINE_VBS2_25_3_T1/processed/FINE_VBS2_25_3_T1-ka.txt"      
-    ## [24] "samples/FINE_VBS2_25_4_T1/processed/FINE_VBS2_25_4_T1-ka.txt"      
-    ## [25] "samples/FINE_VBS2_25_4_T2/processed/FINE_VBS2_25_4_T2-ka.txt"
+     [1] "samples/FINE_ABS1_2_T1/processed/FINE_ABS1_2_T1-ka.txt"            
+     [2] "samples/FINE_ABS1_25_3_T1/processed/FINE_ABS1_25_3_T1-ka.txt"      
+     [3] "samples/FINE_ABS2_25_3_T1/processed/FINE_ABS2_25_3_T1-ka.txt"      
+     [4] "samples/FINE_ABS2_25_4_T1/processed/FINE_ABS2_25_4_T1-ka.txt"      
+     [5] "samples/FINE_ABS2_25_4_T2/processed/FINE_ABS2_25_4_T2-ka.txt"      
+     [6] "samples/FINE_ABS2_25_5_T1/processed/FINE_ABS2_25_5_T1-ka.txt"      
+     [7] "samples/FINE_ABS2_25_5_T2/processed/FINE_ABS2_25_5_T2-ka.txt"      
+     [8] "samples/FINE_BLK1_1_T1/processed/FINE_BLK1_1_T1-ka.txt"            
+     [9] "samples/FINE_BLK1_2_T1/processed/FINE_BLK1_2_T1-ka.txt"            
+    [10] "samples/FINE_BLK1_3_T1/processed/FINE_BLK1_3_T1-ka.txt"            
+    [11] "samples/FINE_BLK1_4_T1/processed/FINE_BLK1_4_T1-ka.txt"            
+    [12] "samples/FINE_BLK1_5_T1/processed/FINE_BLK1_5_T1-ka.txt"            
+    [13] "samples/FINE_BLK1_6_T1/processed/FINE_BLK1_6_T1-ka.txt"            
+    [14] "samples/FINE_BLK2_6_T1/processed/FINE_BLK2_6_T1-ka.txt"            
+    [15] "samples/FINE_clast_VBS1_25_1_T2/processed/FINE_VBS1_25_1_T2-ka.txt"
+    [16] "samples/FINE_VBS1_25_1_T1/processed/FINE_VBS1_25_1_T1-ka.txt"      
+    [17] "samples/FINE_VBS1_25_2_T1/processed/FINE_VBS1_25_2_t1-ka.txt"      
+    [18] "samples/FINE_VBS1_25_3_T1/processed/FINE_VBS1_25_3_T1-ka.txt"      
+    [19] "samples/FINE_VBS1_25_4_T1/processed/FINE_VBS1_25_4_T1-ka.txt"      
+    [20] "samples/FINE_VBS2_25_1_T1/processed/FINE_VBS2_25_1_T1-ka.txt"      
+    [21] "samples/FINE_VBS2_25_2_T1/processed/FINE_VBS2_25_2_T1-ka.txt"      
+    [22] "samples/FINE_VBS2_25_2_T2/processed/FINE_VBS2_25_2_T2-ka.txt"      
+    [23] "samples/FINE_VBS2_25_3_T1/processed/FINE_VBS2_25_3_T1-ka.txt"      
+    [24] "samples/FINE_VBS2_25_4_T1/processed/FINE_VBS2_25_4_T1-ka.txt"      
+    [25] "samples/FINE_VBS2_25_4_T2/processed/FINE_VBS2_25_4_T2-ka.txt"      
 
 ``` r
 #Sample names (Taking the sample files)
@@ -113,5 +113,4 @@ message("terraXRD settings loaded: ", length(sample_files), " samples found in '
         sample_dir, "'. Results will be saved in '", output_dir, "'.")
 ```
 
-    ## terraXRD settings loaded: 25 samples found in 'samples'. Results will be saved in 'output'.
-
+    terraXRD settings loaded: 25 samples found in 'samples'. Results will be saved in 'output'.
