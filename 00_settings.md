@@ -1,9 +1,14 @@
+#' ---
+#' title: "Settings"
+#' author: "Ruth E. Quispe-Pilco"
+#' output: github_document
+#' ---
+
+#+ setup, include = FALSE
 knitr::opts_chunk$set(comment = NA)
 
-Settings
-================
-Ruth E. Quispe-Pilco
-2026-11-25
+#####Settings for terraXRD processing ---------
+...
 
 ``` r
 #####Settings for terraXRD processing ---------
