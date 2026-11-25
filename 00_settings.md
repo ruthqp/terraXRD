@@ -1,7 +1,7 @@
 Settings
 ================
 Ruth E. Quispe-Pilco
-2026-11-24
+2026-11-23
 
 ``` r
 #####Settings for terraXRD processing ---------
