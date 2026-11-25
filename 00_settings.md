@@ -32,8 +32,7 @@ group_column <- "sample_type" #If you don't want to compare, write NULL.
 order_column <- NULL #It is a numeric column (like distance). #Write NULL if you just want to order by sample name.
 
 #Reference minerals (editable)----
-#Here you will find **DIF** files (Diffraction peaks of a pure mineral).
-#They are in .txt format, and have a header and a list of peaks. 
+#Here you will find **DIF** files (Diffraction peaks of a pure mineral). They are in .txt format, and have a header and a list of peaks. 
 #In the peak list, there are columns for:
 ##2-theta (angle of the peak),
 ##Intensity: This is a relative intensity, calculated from the crystal structure of the mineral.
