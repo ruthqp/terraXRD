@@ -4,9 +4,6 @@
 #' output: github_document
 #' ---
 
-#+ setup, include = FALSE
-knitr::opts_chunk$set(comment = NA)
-
 #####Settings for terraXRD processing ---------
 #Let's define first the folders, the instrument settings, 
 #and the list of samples used by all the scripts. 
