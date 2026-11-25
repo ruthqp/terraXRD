@@ -8,10 +8,6 @@
 knitr::opts_chunk$set(comment = NA)
 
 #####Settings for terraXRD processing ---------
-...
-
-``` r
-#####Settings for terraXRD processing ---------
 #Let's define first the folders, the instrument settings, 
 #and the list of samples used by all the scripts. 
 #They are written here only once, so all scripts use the same values.
