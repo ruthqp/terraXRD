@@ -1,3 +1,5 @@
+knitr::opts_chunk$set(comment = NA)
+
 Settings
 ================
 Ruth E. Quispe-Pilco
