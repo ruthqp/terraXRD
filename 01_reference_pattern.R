@@ -1,35 +1,38 @@
-#Script 01: Build the reference patterns from RRUFF and AMCSD DIF files
-##Input:  DIF files in reference/rruff/ (RRUFF) and reference/amcsd/ (AMCSD),
-##one file per mineral
-##Output: output/01_reference_patterns.csv (all peaks of all minerals, one table)
-##
-##To add a mineral: download its DIF file, save it in the right folder with the
-##original name, and run this script again. No code changes needed.
-##AMCSD is used only for minerals without a DIF file in RRUFF.
+#####Reference patterns of the candidate minerals ---------
+#Let's build the reference patterns of the minerals we expect in our samples.
+#We are going to save all the peaks of the minerals from the two datasets into just one table as "01_reference_patterns.csv".
+#If you add a new DIF file (for a new mineral), you should run this script again.
+
+source("~/Documents/Steve Lab/terraXRD_github/steps/00_settings.R")
 
 #Packages-----
 library(tidyverse)
 
-#Step 1: List the DIF files-----
-#1. Set the working directory to the project folder
-setwd("~/Documents/Steve Lab/Svalbard/XRD_Analysis/terraXRD_project")
+#Elements from the DIF file we are going to use:
 
-#2. Find all DIF files in the two folders
-## RRUFF names:  Quartz__R040031-1__Powder__DIF_File__<code>.txt
+##D-spacing: It does not depend on the X-ray wavelength, so we use it to calculate the 2θ
+#of each peak for the Terra with Bragg's law: nλ = 2d sinθ (n = 1), therefore 2θ=2arcsin (λ/2d) 
+#Bragg and Bragg, 1913.
+#For example: quartz, d=3.3432 Å, 26.6 for the terra instrument.
+##Intensity: relative intensity of each peak (Cullity and Stock, 2001, ch. 4).
+#The 2θ column of the DIF files is calculated for another wavelength (1.541838 Å), so we don't use it.
+
+#Step 1: List the DIF files-----
+## RRUFF names:  Quartz__R040031-1__Powder__DIF_File.txt
 ## AMCSD names:  Kaolinite__0020861.dif
-rruff_files <- list.files("reference/rruff", pattern = "DIF_File", full.names = TRUE)
-amcsd_files <- list.files("reference/amcsd", pattern = "\\.dif$", full.names = TRUE)
+rruff_files <- list.files(rruff_dir, pattern = "DIF_File", full.names = TRUE)
+amcsd_files <- list.files(amcsd_dir, pattern = "\\.dif$", full.names = TRUE)
 dif_files   <- c(rruff_files, amcsd_files)
 dif_files
-length(dif_files)   ##number of minerals
+length(dif_files)   ## number of minerals
 
-#Step 2: Write a function that reads one DIF file-----
+#Step 2: Function to read one DIF file-----
 ## This function contains the same steps we did for quartz:
 ## read the lines, find the peak table, sum peaks with the same d-spacing,
 ## convert d-spacing to 2-theta for the Terra (Cu, 1.5406 A), keep 5-55 degrees.
 ## Writing it as a function lets us apply it to every file in the folder.
 
-lambda_terra <- 1.5406   ##Cu K-alpha1,from the Terra .plv file
+lambda_terra <- 1.5406   ## Cu K-alpha1, from the Terra .plv file
 
 read_dif <- function(dif_file) {
   
@@ -41,8 +44,8 @@ read_dif <- function(dif_file) {
   mineral   <- str_extract(file_name, "^[^_]+")
   source    <- if_else(str_detect(dif_file, "amcsd"), "AMCSD", "RRUFF")
   ref_id    <- if_else(source == "RRUFF",
-                       str_extract(file_name, "R[0-9]+"),             ##R + digits
-                       str_extract(file_name, "[0-9]+(?=\\.dif$)"))   ##digits before .dif
+                       str_extract(file_name, "R[0-9]+"),             ## R + digits
+                       str_extract(file_name, "[0-9]+(?=\\.dif$)"))   ## digits before .dif
   
   # 2. Read the lines and find the peak table
   ## The table starts after the line with "2-THETA".
@@ -63,7 +66,7 @@ read_dif <- function(dif_file) {
     select(intensity = V2, d_spacing = V3) %>%
     # 4. Sum peaks with the same d-spacing (they appear as one peak)
     group_by(d_spacing) %>%
-    summarise(intensity = sum(intensity)) %>%
+    dplyr::summarise(intensity = sum(intensity)) %>%
     arrange(desc(d_spacing)) %>%
     # 5. Relative intensity (strongest peak = 100) and 2-theta for the Terra
     mutate(rel_intensity = 100 * intensity / max(intensity),
@@ -86,7 +89,7 @@ head(reference_patterns)
 dim(reference_patterns)
 
 # 2. Check: number of peaks per mineral
-reference_patterns %>% count(source, mineral, ref_id) %>% print(n = Inf)
+reference_patterns %>% dplyr::count(source, mineral, ref_id) %>% print(n = Inf)
 ## Quartz (R040031) should have 9 peaks
 
 #Step 4: Plot the reference patterns-----
@@ -100,10 +103,16 @@ reference_plot <- ggplot(reference_patterns) +
        x = "2-theta (degrees)", y = "Relative intensity") +
   theme_classic()
 reference_plot
-ggsave("output/01_reference_patterns.png", reference_plot,
-       width = 10, height = 2 + 2 * ceiling(length(dif_files) / 4), dpi = 300)
-## The height grows with the number of minerals (4 panels per row)
 
-#Step 5: Save the table-----
-write_csv(reference_patterns, "output/01_reference_patterns.csv")
+#You can save this plot if you want 
+ggsave(file.path(output_dir, "01_reference_patterns.png"), reference_plot,
+       width = 10, height = 2 + 2 * ceiling(length(dif_files) / 4), dpi = 300)
+#And you can save this information as a table (This will be necessary later on)
+write_csv(reference_patterns, file.path(output_dir, "01_reference_patterns.csv"))
+
+#References ----
+#Bragg, W. H., and Bragg, W. L. (1913). The reflection of X-rays by crystals.
+#Proc. R. Soc. Lond. A 88, 428-438. doi:10.1098/rspa.1913.0040
+#Cullity, B. D., and Stock, S. R. (2001). Elements of X-Ray Diffraction, 3rd Edn.
+#Upper Saddle River, NJ: Prentice Hall.
 
