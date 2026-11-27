@@ -5,6 +5,8 @@ R scripts for processing XRD patterns from portable Olympus Terra XRD/XRF instru
 
 Completed_workflow.md --> Here you will see the complete workflow with the code, results and plots, step by step.
 
+This example uses samples from both, debris deposits and intermediary sediments from Midtre Lovénbreen glacier forefield.
+
 ## What do you need?
 
 - **XRD patterns**
