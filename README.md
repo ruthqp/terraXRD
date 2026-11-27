@@ -9,12 +9,14 @@ Completed_workflow.md --> Here you will see the complete workflow with the code,
 
 - **XRD patterns**
 - **A metadata file**
+- **R with "tidyverse" package**
 
 We provide two reference minerals files which includes minerals selected for **High-Arctic glacier sediments and soils (Svalbard)**. For other sites, revise the list in "reference/". 
 
 ## Associated publication
 
 This workflow was developed for and used in:
+
 Quispe-Pilco, R. E., et al. (submitted, 2026). Supraglacial geomorphology influences the rate and pattern of succession along a High-Arctic glacial foreland. Frontiers in Microbiology.
 
 ## Contact
