@@ -5,7 +5,7 @@ Ruth E. Quispe-Pilco
 2026-11-26
 
 This is a workflow for processing XRD patterns of natural samples
-anzlyzed by the Terra Olympus XRD/XRF portable instrument. We use our
+analyzed by the Terra Olympus XRD/XRF portable instrument. We use our
 samples results, a reference database and a metadata. The results of
 this workflow gives a qualitative identification of the mineral phases
 in each sample.
