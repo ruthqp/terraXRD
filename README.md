@@ -15,6 +15,7 @@ This example uses samples from both, debris deposits and intermediary sediments 
 
 We provide two reference minerals folders inside of "reference" folder, which includes minerals selected for **High-Arctic glacier sediments and soils (Svalbard)**. For other sites, revise the list in "reference/". 
 
+You can download your own reference minerals from here:
 RRUFF database: https://www.rruff.net/ , 
 AMCSD database: https://www.rruff.net/amcsd/
 
