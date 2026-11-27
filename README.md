@@ -1,1 +1,2 @@
-R scripst for processing
+# terraXRD
+R scripst for processing XRD patterns
