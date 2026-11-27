@@ -9,7 +9,7 @@ This example uses samples from both, debris deposits and intermediary sediments 
 
 ## What do you need?
 
-- **XRD patterns**
+- **XRD patterns (from your samples)**
 - **A metadata file**
 - **R with "tidyverse" package**
 
