@@ -1,0 +1,50 @@
+      Quartz
+Diffraction data computed using the structure from the paper listed below, 
+along with the cell parameters refined from single crystal data of R040031 
+      Levien L, Prewitt C T, Weidner D J
+      American Mineralogist 65 (1980) 920-930
+      Structure and elastic properties of quartz at pressure
+      P = 1 atm
+
+      CELL PARAMETERS:   4.9134  4.9134  5.4042   90.000   90.000  120.000
+      ALTERNATE SETTING FOR SPACE GROUP: P3_221    
+
+           ATOM        X         Y         Z     OCCUPANCY  ISO(B)
+            Si     0.46970   0.00000   0.00000     1.000     0.616
+            O      0.41350   0.26690   0.11910     1.000     1.057
+
+            X-RAY WAVELENGTH:     1.541838
+            BOUNDS ON TWO THETA:    5.0  90.0
+            LIMITS IMPOSED ON THE INDICES ARE:  +/-  3 +/-  3 +/-  4
+            MAX. ABS. INTENSITY / VOLUME**2:      35.21846866    
+            The INTENSITY cut off value is   1.00
+
+               2-THETA      INTENSITY    D-SPACING   H   K   L
+                20.88         19.92        4.2551    1   0   0
+                26.66         69.90        3.3432    0   1   1
+                26.66         30.10        3.3432    1   0   1
+                36.58          7.13        2.4567    1   1   0
+                39.51          1.01        2.2810    0   1   2
+                39.51          6.18        2.2810    1   0   2
+                40.33          3.19        2.2365    1   1   1
+                42.49          5.24        2.1276    2   0   0
+                45.84          1.00        1.9797    0   2   1
+                45.84          2.09        1.9797    2   0   1
+                50.19         12.58        1.8177    1   1   2
+                54.93          3.09        1.6716    0   2   2
+                55.38          1.61        1.6589    0   1   3
+                60.02          4.93        1.5415    1   2   1
+                60.02          4.11        1.5415    2   1   1
+                64.10          1.72        1.4527    1   1   3
+                67.81          1.38        1.3820    2   1   2
+                67.81          4.18        1.3820    1   2   2
+                68.22          1.36        1.3748    0   2   3
+                68.22          5.31        1.3748    2   0   3
+                68.38          4.13        1.3719    0   3   1
+                73.55          1.73        1.2877    1   0   4
+                75.74          1.91        1.2559    3   0   2
+                79.97          2.30        1.1997    2   1   3
+                81.26          2.41        1.1838    1   1   4
+================================================================================
+       XPOW Copyright 1993 Bob Downs, Ranjini Swaminathan and Kurt Bartelmehs
+  For reference, see Downs et al. (1993) American Mineralogist 78, 1104-1107.
