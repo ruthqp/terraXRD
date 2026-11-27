@@ -12,6 +12,8 @@ Completed_workflow.md --> Here you will see the complete workflow with the code,
 - **R with "tidyverse" package**
 
 We provide two reference minerals folders inside of "reference" folder, which includes minerals selected for **High-Arctic glacier sediments and soils (Svalbard)**. For other sites, revise the list in "reference/". 
+RRUFF database: https://www.rruff.net/
+AMCSD database: https://www.rruff.net/amcsd/
 
 ## Associated publication
 
